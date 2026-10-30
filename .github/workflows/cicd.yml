@@ -62,23 +62,3 @@ jobs:
       # Step 5: Build and run tests
       - name: Clean and Build
         run: ./gradlew clean build
-
-  dependency-submission:
-    name: Dependency Submission
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: "17"
-          distribution: temurin
-
-      - name: Submit dependency graph
-        uses: gradle/actions/dependency-submission@v4
